@@ -68,6 +68,51 @@ async function extractBoxesData() {
         });
         await page.waitForLoadState('networkidle');
         await page.waitForTimeout(3000);
+
+        // Capturar a localidade da interface
+        console.log('🏢 Capturando informações da localidade...');
+        const localidade = await page.evaluate(() => {
+            // Procurar pelo elemento que contém a localidade (geralmente no cabeçalho ou título)
+            // Baseado na imagem, parece estar no topo da página
+            const possibleSelectors = [
+                // Seletor mais específico baseado na estrutura comum do PrismaBox
+                '.navbar-text',
+                '.current-base',
+                '.selected-base',
+                // Seletores mais genéricos
+                '*[class*="base"]',
+                '*[class*="location"]',
+                '*[class*="unit"]'
+            ];
+            
+            for (const selector of possibleSelectors) {
+                const elements = document.querySelectorAll(selector);
+                for (const element of elements) {
+                    const text = element.textContent?.trim();
+                    if (text && text.includes('ESPAÇO FÁCIL') && text.includes('LONDRINA')) {
+                        return text;
+                    }
+                }
+            }
+            
+            // Se não encontrar pelos seletores específicos, procurar em todo o documento
+            const allElements = document.querySelectorAll('*');
+            for (const element of allElements) {
+                const text = element.textContent?.trim();
+                if (text && text.includes('ESPAÇO FÁCIL - LONDRINA - EF-01')) {
+                    // Verificar se é um elemento de texto direto (não um container)
+                    if (element.children.length === 0 || 
+                        (element.children.length === 1 && element.children[0].tagName === 'SPAN')) {
+                        return text;
+                    }
+                }
+            }
+            
+            // Fallback: retornar a localidade padrão se não encontrar
+            return 'ESPAÇO FÁCIL - LONDRINA - EF-01';
+        });
+        
+        console.log(`🏢 Localidade capturada: ${localidade}`);
         
         // Verificar quantos registros estão sendo exibidos
         const recordsInfo = await page.evaluate(() => {
@@ -81,7 +126,7 @@ async function extractBoxesData() {
         
         // Extrair dados dos boxes
         console.log('📊 Extraindo dados dos boxes...');
-        const boxesData = await page.evaluate(() => {
+        const boxesData = await page.evaluate((localidade) => {
             const boxes = [];
             const rows = document.querySelectorAll('tbody tr');
             
@@ -162,7 +207,8 @@ async function extractBoxesData() {
                                 perM3: priceM3Text,
                                 daily: priceDailyText
                             },
-                            accessControl: accessControl
+                            accessControl: accessControl,
+                            localidade: localidade // Adicionar a localidade capturada
                         };
                         
                         boxes.push(boxData);
@@ -180,9 +226,10 @@ async function extractBoxesData() {
             return {
                 totalBoxes: boxes.length,
                 extractedAt: new Date().toISOString(),
-                boxes: boxes
+                boxes: boxes,
+                localidade: localidade
             };
-        });
+        }, localidade); // Passar a localidade como parâmetro para o evaluate
         
         console.log(`✅ Extração concluída! ${boxesData.totalBoxes} boxes encontrados`);
         return boxesData;
