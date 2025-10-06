@@ -1,0 +1,32 @@
+{
+  "bases": [
+    {
+      "id": "ef-londrina-01",
+      "name": "ESPAÇO FÁCIL - LONDRINA - EF-01",
+      "displayName": "ESPAÇO FÁCIL - LONDRINA - EF-01",
+      "url": "https://app.prismabox.com.br/boxes",
+      "active": true,
+      "description": "Base principal de Londrina - Espaço Fácil",
+      "selectors": {
+        "baseSelector": "select option[value*='ESPAÇO FÁCIL - LONDRINA - EF-01']",
+        "statusFilter": "select[name='status']",
+        "table": "table.table-striped",
+        "rows": "tbody tr"
+      },
+      "filters": {
+        "status": "DISPONÍVEL"
+      }
+    }
+  ],
+  "settings": {
+    "defaultTimeout": 30000,
+    "retryAttempts": 3,
+    "batchSize": 50,
+    "logLevel": "info"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-09",
+    "description": "Configuração para extração multi-base do Prisma Box"
+  }
+}
