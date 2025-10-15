@@ -1,0 +1,101 @@
+{
+  "timestamp": "2025-10-13T22:00:00.000Z",
+  "totalUnits": 11,
+  "status": "confirmed_by_user",
+  "units": [
+    {
+      "code": "EF-01",
+      "city": "LONDRINA",
+      "internalCode": "171",
+      "fullName": "ESPAÇO FÁCIL - LONDRINA - EF-01",
+      "active": true
+    },
+    {
+      "code": "EF-02",
+      "city": "BAURU",
+      "internalCode": "194",
+      "fullName": "ESPAÇO FÁCIL - BAURU - EF-02",
+      "active": true
+    },
+    {
+      "code": "EF-03",
+      "city": "CASCAVEL",
+      "internalCode": "199",
+      "fullName": "ESPAÇO FÁCIL - CASCAVEL - EF-03",
+      "active": true
+    },
+    {
+      "code": "EF-04",
+      "city": "MARINGÁ",
+      "internalCode": "198",
+      "fullName": "ESPAÇO FÁCIL - MARINGÁ - EF-04",
+      "active": true
+    },
+    {
+      "code": "EF-05",
+      "city": "JOINVILLE",
+      "internalCode": "224",
+      "fullName": "ESPAÇO FÁCIL - JOINVILLE - EF-05",
+      "active": true
+    },
+    {
+      "code": "EF-06",
+      "city": "ITAJAÍ",
+      "internalCode": "230",
+      "fullName": "ESPAÇO FÁCIL - ITAJAÍ - EF-06",
+      "active": true
+    },
+    {
+      "code": "EF-07",
+      "city": "JUIZ DE FORA",
+      "internalCode": "238",
+      "fullName": "ESPAÇO FÁCIL - JUIZ DE FORA - EF-07",
+      "active": true
+    },
+    {
+      "code": "EF-08",
+      "city": "CAMPO GRANDE",
+      "internalCode": "267",
+      "fullName": "ESPACO FACIL - CAMPO GRANDE - EF-08",
+      "active": true
+    },
+    {
+      "code": "EF-09",
+      "city": "SANTOS",
+      "internalCode": "301",
+      "fullName": "ESPAÇO FÁCIL - SANTOS - EF-09",
+      "active": true
+    },
+    {
+      "code": "EF-10",
+      "city": "FLORIANÓPOLIS",
+      "internalCode": "328",
+      "fullName": "ESPAÇO FÁCIL - FLORIANÓPOLIS - EF-10",
+      "active": true
+    },
+    {
+      "code": "EF-11",
+      "city": "CURITIBA",
+      "internalCode": "342",
+      "fullName": "ESPAÇO FÁCIL - CURITIBA - EF-11",
+      "active": true
+    }
+  ],
+  "summary": {
+    "activeCities": [
+      "LONDRINA",
+      "BAURU", 
+      "CASCAVEL",
+      "MARINGÁ",
+      "JOINVILLE",
+      "ITAJAÍ",
+      "JUIZ DE FORA",
+      "CAMPO GRANDE",
+      "SANTOS",
+      "FLORIANÓPOLIS",
+      "CURITIBA"
+    ],
+    "codeRange": "EF-01 to EF-11",
+    "internalCodeRange": "171, 194, 198, 199, 224, 230, 238, 267, 301, 328, 342"
+  }
+}

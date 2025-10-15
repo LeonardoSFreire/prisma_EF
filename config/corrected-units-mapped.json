@@ -1,0 +1,114 @@
+{
+  "timestamp": "2025-10-13T21:50:15.931Z",
+  "totalUnitsFound": 11,
+  "expectedUnits": 10,
+  "isCorrect": false,
+  "dropdownOpened": true,
+  "units": [
+    {
+      "code": "EF-01",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - LONDRINA - \n                                            EF-01",
+      "context": "ESPAÇO FÁCIL - LONDRINA - \n                                            EF-01",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-02",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - BAURU -\n                                                                        EF-02                                                                        Cod: 194                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - BAURU -\n                                                                        EF-02                                                                        Cod: 194                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-03",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - CASCAVEL -\n                                                                        EF-03                                                                        Cod: 199                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - CASCAVEL -\n                                                                        EF-03                                                                        Cod: 199                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-04",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - MARINGÁ -\n                                                                        EF-04                                                                        Cod: 198                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - MARINGÁ -\n                                                                        EF-04                                                                        Cod: 198                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-05",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - JOINVILLE -\n                                                                        EF-05                                                                        Cod: 224                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - JOINVILLE -\n                                                                        EF-05                                                                        Cod: 224                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-06",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - ITAJAÍ -\n                                                                        EF-06                                                                        Cod: 230                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - ITAJAÍ -\n                                                                        EF-06                                                                        Cod: 230                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-07",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - JUIZ DE FORA -\n                                                                        EF-07                                                                        Cod: 238                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - JUIZ DE FORA -\n                                                                        EF-07                                                                        Cod: 238                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-08",
+      "city": "N/A",
+      "fullText": "ESPACO FACIL - CAMPO GRANDE -\n                                                                        EF-08                                                                        Cod: 267                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPACO FACIL - CAMPO GRANDE -\n                                                                        EF-08                                                                        Cod: 267                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-09",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - SANTOS -\n                                                                        EF-09                                                                         Cod: 301                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - SANTOS -\n                                                                        EF-09                                                                         Cod: 301                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-10",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - FLORIANÓPOLIS -\n                                                                        EF-10                                                                        Cod: 328                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - FLORIANÓPOLIS -\n                                                                        EF-10                                                                        Cod: 328                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    },
+    {
+      "code": "EF-11",
+      "city": "N/A",
+      "fullText": "ESPAÇO FÁCIL - CURITIBA -\n                                                                        EF-11                                                                        Cod: 342                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "context": "Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - CURITIBA -\n                                                                        EF-11                                                                        Cod: 342                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL",
+      "source": "dropdown"
+    }
+  ],
+  "summary": {
+    "codes": [
+      "EF-01",
+      "EF-02",
+      "EF-03",
+      "EF-04",
+      "EF-05",
+      "EF-06",
+      "EF-07",
+      "EF-08",
+      "EF-09",
+      "EF-10",
+      "EF-11"
+    ],
+    "cities": [
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A",
+      "N/A"
+    ]
+  }
+}

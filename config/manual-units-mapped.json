@@ -1,0 +1,172 @@
+{
+  "timestamp": "2025-10-13T21:47:34.220Z",
+  "totalUnitsFound": 22,
+  "mappingStrategies": {
+    "espacoFacilElements": 11,
+    "selectElements": 15,
+    "unitLinks": 11,
+    "efPatterns": 31,
+    "londrinaPatterns": 0
+  },
+  "units": [
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-01",
+      "context": "\n                                                                                    ESPAÇO FÁCIL - LONDRINA - \n                                            EF-01                                       ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-02",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - BAURU -\n                                    ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-04",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - MARINGÁ -\n                                  ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-03",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - CASCAVEL -\n                                 ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-05",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - JOINVILLE -\n                                ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-06",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - ITAJAÍ -\n                                   ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-07",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - JUIZ DE FORA -\n                             ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-08",
+      "context": "\n                                                                                                                                            ESPACO FACIL - CAMPO GRANDE -\n                             ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-09",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - SANTOS -\n                                   ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-10",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - FLORIANÓPOLIS -\n                            ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "ESPAÇO FÁCIL",
+      "code": "EF-11",
+      "context": "\n                                                                                                                                            ESPAÇO FÁCIL - CURITIBA -\n                                 ",
+      "source": "espacoFacilElement"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-01",
+      "text": "\n                                    \n                                    \n                                                                                    ESPAÇO FÁCIL - LONDRINA - \n                                            EF-01                                                                            \n                                                                            \n                                                                    ",
+      "href": "javascript:;",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-02",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - BAURU -\n                                                                        EF-02                                                                        Cod: 194                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-04",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - MARINGÁ -\n                                                                        EF-04                                                                        Cod: 198                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-03",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - CASCAVEL -\n                                                                        EF-03                                                                        Cod: 199                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-05",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - JOINVILLE -\n                                                                        EF-05                                                                        Cod: 224                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-06",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - ITAJAÍ -\n                                                                        EF-06                                                                        Cod: 230                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-07",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - JUIZ DE FORA -\n                                                                        EF-07                                                                        Cod: 238                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-08",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPACO FACIL - CAMPO GRANDE -\n                                                                        EF-08                                                                        Cod: 267                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-09",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - SANTOS -\n                                                                        EF-09                                                                         Cod: 301                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-10",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - FLORIANÓPOLIS -\n                                                                        EF-10                                                                        Cod: 328                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    },
+    {
+      "type": "LINK_BUTTON",
+      "code": "EF-11",
+      "text": "\n                                                                Trocar\n                                                                \n                                                                                                                                            ESPAÇO FÁCIL - CURITIBA -\n                                                                        EF-11                                                                        Cod: 342                                                                        \n                                                                        \n                                                                            ESPAÇO FÁCIL                                                                        \n                                                                                                                                    \n                                                            ",
+      "href": "#",
+      "source": "linkButton"
+    }
+  ],
+  "rawPatterns": {
+    "efCodes": [
+      "EF-01",
+      "EF-02",
+      "EF-04",
+      "EF-03",
+      "EF-05",
+      "EF-06",
+      "EF-07",
+      "EF-08",
+      "EF-09",
+      "EF-10",
+      "EF-11"
+    ],
+    "londrinaPatterns": []
+  }
+}
