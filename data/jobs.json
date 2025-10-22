@@ -1,0 +1,17 @@
+[
+  {
+    "jobId": "88151ccd-5208-4c26-9a2e-fc43aa1b004e",
+    "callbackUrl": {
+      "callbackUrl": "http://localhost:3001/webhook/scraping-result",
+      "status": "pending",
+      "progress": "Job criado, aguardando início..."
+    },
+    "status": "started",
+    "createdAt": "2025-10-22T21:14:28.287Z",
+    "updatedAt": "2025-10-22T21:14:28.287Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  }
+]
