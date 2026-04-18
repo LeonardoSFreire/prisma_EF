@@ -20,6 +20,6 @@ ENV PORT=3000
 # Expor porta da API
 EXPOSE 3000
 
-# Comando de inicialização (API local)
-CMD ["npm", "run", "start"]
-
+# Comando de inicialização (API local) sem npm wrapper
+# Evita logs de "npm error signal SIGTERM" em reinícios controlados
+CMD ["node", "api-server.js"]

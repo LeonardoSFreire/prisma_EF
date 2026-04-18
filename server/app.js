@@ -7,6 +7,12 @@ const scrapingRoutes = require('../routes/scraping');
 function createApp({ basePath = '/api/scraping' } = {}) {
   const app = express();
 
+  // Estados de readiness e shutdown para health checks estáveis
+  // - app.locals.ready: API pronta para receber tráfego
+  // - app.locals.shuttingDown: processo entrando em encerramento
+  app.locals.ready = false;
+  app.locals.shuttingDown = false;
+
   // Segurança
   app.use(helmet());
 
@@ -20,10 +26,18 @@ function createApp({ basePath = '/api/scraping' } = {}) {
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true }));
 
-  // Health
+  // Health (liveness/readiness)
   app.get('/health', (req, res) => {
-    res.status(200).json({
-      status: 'OK',
+    const shuttingDown = Boolean(app.locals.shuttingDown);
+    const ready = Boolean(app.locals.ready);
+
+    // Quando em shutdown, responder 503 para permitir drenagem pelo orquestrador
+    const statusCode = shuttingDown ? 503 : 200;
+
+    res.status(statusCode).json({
+      status: shuttingDown ? 'SHUTTING_DOWN' : 'OK',
+      ready,
+      shuttingDown,
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
       environment: process.env.NODE_ENV || 'development'
@@ -56,4 +70,3 @@ function createApp({ basePath = '/api/scraping' } = {}) {
 }
 
 module.exports = { createApp };
-

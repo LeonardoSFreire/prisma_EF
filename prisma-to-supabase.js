@@ -877,6 +877,18 @@ async function main() {
             console.log('✅ Navegador fechado com sucesso!');
         }
         
+        // 5. Retornar resumo para o worker enviar no callback
+        return {
+            summary: 'Scraping concluído com sucesso',
+            totalBoxes: extractedData.totalBoxes,
+            unitsProcessed: extractedData.unitsProcessed,
+            successfulUnits: extractedData.successfulUnits,
+            failedUnits: extractedData.failedUnits,
+            unitDetails: extractedData.unitDetails,
+            // logs podem ser adicionados futuramente se necessário
+            logs: []
+        };
+
     } catch (error) {
         console.error('❌ Erro no processo principal:', error);
         throw error;

@@ -56,6 +56,10 @@ class CallbackService {
         summary: result.summary,
         totalBoxes: result.totalBoxes,
         unitsProcessed: result.unitsProcessed,
+        successfulUnits: result.successfulUnits,
+        failedUnits: result.failedUnits,
+        // Detalhes por unidade para diagnóstico fino
+        units: result.units || [],
         processingTime: result.processingTime,
         logs: result.logs
       }
