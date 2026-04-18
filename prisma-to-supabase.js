@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const { insertBoxes, clearBoxes, getBoxesStats } = require('./supabase-client');
+const { insertBoxes, clearBoxes, clearBoxesByLocalidade, getBoxesStats } = require('./supabase-client');
 const fs = require('fs');
 
 // Carregar configuração das unidades
@@ -146,7 +146,7 @@ async function extractBoxesData() {
         let filtersApplied = false;
 
         // Função para processar uma unidade com retry
-        async function processUnitWithRetry(unit, attempt = 1, maxAttempts = 2) {
+        async function processUnitWithRetry(unit, attempt = 1, maxAttempts = 3) {
             const startTime = Date.now();
             console.log(`\n🏢 Processando unidade ${unit.code} - ${unit.city} (Tentativa ${attempt}/${maxAttempts})`);
             
@@ -189,8 +189,19 @@ async function extractBoxesData() {
                     console.log('✅ Filtros aplicados! Próximas unidades pularão esta etapa.');
                 }
                 
-                // Fazer insert no Supabase separadamente para cada unidade
+                // Limpar dados antigos e inserir os novos por unidade (substituição atômica por localidade)
                 if (unitBoxes.length > 0) {
+                    const localidadeDaUnidade = unitBoxes[0].localidade;
+                    if (localidadeDaUnidade) {
+                        console.log(`🧹 Limpando dados antigos da localidade "${localidadeDaUnidade}" antes do insert...`);
+                        const clearUnitResult = await clearBoxesByLocalidade(localidadeDaUnidade);
+                        if (!clearUnitResult.success) {
+                            console.error(`❌ Erro ao limpar localidade "${localidadeDaUnidade}":`, clearUnitResult.error);
+                            throw new Error(`Falha ao limpar localidade ${localidadeDaUnidade}: ${clearUnitResult.error}`);
+                        }
+                    } else {
+                        console.log(`⚠️ Localidade não identificada para unidade ${unit.code}; pulando clear antes do insert`);
+                    }
                     console.log(`💾 Salvando ${unitBoxes.length} boxes da unidade ${unit.code} no Supabase...`);
                     await insertBoxes(unitBoxes);
                     console.log(`✅ Dados da unidade ${unit.code} salvos no Supabase com sucesso!`);
@@ -809,19 +820,12 @@ async function main() {
     try {
         console.log('🎯 Iniciando processo completo: Prisma Box → Supabase');
         console.log('=' .repeat(50));
-        
-        // 1. Limpar dados existentes no Supabase antes de começar
-        console.log('🧹 Limpando dados existentes no Supabase...');
-        const clearResult = await clearBoxes();
-        
-        if (!clearResult.success) {
-            console.error('❌ Erro ao limpar dados existentes:', clearResult.error);
-            // Continuar mesmo assim
-        } else {
-            console.log('✅ Dados existentes limpos com sucesso');
-        }
-        
-        // 2. Extrair dados do Prisma Box (agora com insert por unidade)
+
+        // Estratégia: limpeza por unidade, feita imediatamente antes do insert da mesma unidade.
+        // Se a extração falhar no meio do processo, os dados antigos das unidades ainda não
+        // processadas permanecem intactos no Supabase — evitando janela longa de banco vazio.
+
+        // Extrair dados do Prisma Box (clear + insert por unidade dentro do loop)
         const extractedData = await extractBoxesData();
         
         if (!extractedData.boxes || extractedData.boxes.length === 0) {

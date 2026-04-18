@@ -30,12 +30,8 @@ router.post('/start', async (req, res) => {
     // Gerar ID único para o job
     const jobId = uuidv4();
 
-    // Criar job no tracker
-    await jobTracker.createJob(jobId, {
-      callbackUrl,
-      status: 'pending',
-      progress: 'Job criado, aguardando início...'
-    });
+    // Criar job no tracker (apenas URL; status/progresso são gerenciados pelo tracker/worker)
+    await jobTracker.createJob(jobId, callbackUrl);
 
     // Responder imediatamente com 200 OK
     res.status(200).json({
@@ -46,23 +42,82 @@ router.post('/start', async (req, res) => {
       timestamp: new Date().toISOString()
     });
 
-    // Iniciar worker de forma assíncrona com delay para garantir que o job foi criado
+    // Iniciar execução de forma assíncrona com pequeno delay para garantir que o job foi criado
     setTimeout(async () => {
-      try {
-        console.log(`🚀 Iniciando worker para job: ${jobId}`);
-        await scrapingWorker.startScraping(jobId, callbackUrl);
-        console.log(`✅ Worker iniciado para job: ${jobId}`);
-      } catch (error) {
-        console.error(`❌ Erro ao iniciar worker para job ${jobId}:`, error);
-        
-        // Atualizar job como falhado
-        jobTracker.failJob(jobId, error);
-        
-        // Tentar enviar callback de erro
+      const host = (req.headers && req.headers.host) ? String(req.headers.host) : '';
+      const isLocalHost = host.includes('localhost') || host.startsWith('127.0.0.1');
+      const mode = (req.query && req.query.mode) ? String(req.query.mode).toLowerCase() : '';
+      const forceWorker = mode === 'worker';
+      const useDirectExec = !forceWorker && (process.env.SCRAPING_DIRECT_EXECUTION === 'true' || isLocalHost || (process.env.NODE_ENV && process.env.NODE_ENV !== 'production'));
+
+      if (useDirectExec) {
+        // Execução direta (sem worker) para ambiente de desenvolvimento
         try {
-          await callbackService.sendErrorCallback(callbackUrl, jobId, error);
-        } catch (callbackError) {
-          console.error(`❌ Erro ao enviar callback de erro:`, callbackError);
+          console.log(`🚀 Execução direta iniciada para job: ${jobId}`);
+          await jobTracker.updateJob(jobId, {
+            status: 'running',
+            progress: 'Execução direta iniciada...'
+          });
+
+          await jobTracker.addLog(jobId, 'Executando sem worker (dev)');
+
+          const { main } = require('../prisma-to-supabase');
+          const { getBoxesStats } = require('../supabase-client');
+
+          const startTime = Date.now();
+          await main();
+          const endTime = Date.now();
+          const processingTime = Math.round((endTime - startTime) / 1000);
+
+          const statsResult = await getBoxesStats();
+          const totalBoxes = statsResult?.success ? (statsResult.stats?.total || 0) : 0;
+
+          const scrapingResult = {
+            summary: 'Scraping concluído com sucesso (execução direta)',
+            totalBoxes,
+            unitsProcessed: 0,
+            successfulUnits: 0,
+            failedUnits: [],
+            processingTime,
+            logs: [],
+            extractedAt: new Date().toISOString()
+          };
+
+          await jobTracker.completeJob(jobId, scrapingResult);
+          await jobTracker.addLog(jobId, `Scraping concluído em ${processingTime} segundos (execução direta)`);
+
+          try {
+            await callbackService.sendSuccessCallback(callbackUrl, jobId, scrapingResult);
+          } catch (callbackError) {
+            console.error('⚠️ Erro ao enviar callback de sucesso (execução direta):', callbackError);
+          }
+
+          console.log(`✅ Execução direta concluída para job: ${jobId}`);
+
+        } catch (error) {
+          console.error(`❌ Erro na execução direta para job ${jobId}:`, error);
+          await jobTracker.failJob(jobId, error);
+          await jobTracker.addLog(jobId, `Erro: ${error.message}`, 'error');
+          try {
+            await callbackService.sendErrorCallback(callbackUrl, jobId, error);
+          } catch (callbackError) {
+            console.error(`❌ Erro ao enviar callback de erro (execução direta):`, callbackError);
+          }
+        }
+      } else {
+        // Execução via worker (produção)
+        try {
+          console.log(`🚀 Iniciando worker para job: ${jobId}`);
+          await scrapingWorker.startScraping(jobId, callbackUrl);
+          console.log(`✅ Worker iniciado para job: ${jobId}`);
+        } catch (error) {
+          console.error(`❌ Erro ao iniciar worker para job ${jobId}:`, error);
+          await jobTracker.failJob(jobId, error);
+          try {
+            await callbackService.sendErrorCallback(callbackUrl, jobId, error);
+          } catch (callbackError) {
+            console.error(`❌ Erro ao enviar callback de erro:`, callbackError);
+          }
         }
       }
     }, 100); // 100ms de delay para garantir que o job foi salvo

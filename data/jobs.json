@@ -1,5 +1,36 @@
 [
   {
+    "jobId": "cli-test",
+    "callbackUrl": "auto-created",
+    "status": "completed",
+    "createdAt": "2025-12-03T23:48:32.358Z",
+    "updatedAt": "2025-12-03T23:51:53.149Z",
+    "progress": "Scraping concluído com sucesso",
+    "logs": [
+      {
+        "timestamp": "2025-12-03T23:48:32.946Z",
+        "level": "info",
+        "message": "Iniciando processo de scraping"
+      },
+      {
+        "timestamp": "2025-12-03T23:51:53.149Z",
+        "level": "info",
+        "message": "Scraping concluído em 200 segundos"
+      }
+    ],
+    "result": {
+      "summary": "Scraping concluído com sucesso",
+      "totalBoxes": 0,
+      "unitsProcessed": 0,
+      "successfulUnits": 0,
+      "failedUnits": [],
+      "processingTime": 200,
+      "logs": [],
+      "extractedAt": "2025-12-03T23:51:53.146Z"
+    },
+    "error": null
+  },
+  {
     "jobId": "137eef82-3a47-40d0-b894-eda964714fbe",
     "callbackUrl": "auto-created",
     "status": "completed",
@@ -27,6 +58,126 @@
       "processingTime": 192,
       "logs": [],
       "extractedAt": "2025-12-02T17:14:08.195Z"
+    },
+    "error": null
+  },
+  {
+    "jobId": "456376ba-d803-4775-90a8-e696d3b76d2e",
+    "callbackUrl": {
+      "callbackUrl": "http://localhost:3010/callback",
+      "status": "pending",
+      "progress": "Job criado, aguardando início..."
+    },
+    "status": "started",
+    "createdAt": "2025-12-03T23:43:01.739Z",
+    "updatedAt": "2025-12-03T23:43:01.743Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "3b20df52-15eb-422a-87a7-29df319d1e4a",
+    "callbackUrl": {
+      "callbackUrl": "https://postman-echo.com/post",
+      "status": "pending",
+      "progress": "Job criado, aguardando início..."
+    },
+    "status": "started",
+    "createdAt": "2025-12-03T23:46:06.235Z",
+    "updatedAt": "2025-12-03T23:46:06.235Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "8ccb9616-3937-4b78-9cf0-4f984dbea312",
+    "callbackUrl": {
+      "callbackUrl": "https://postman-echo.com/post",
+      "status": "pending",
+      "progress": "Job criado, aguardando início..."
+    },
+    "status": "started",
+    "createdAt": "2025-12-03T23:58:20.441Z",
+    "updatedAt": "2025-12-03T23:58:20.442Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "fdc039b7-78d7-404e-b7cb-76c277cccba2",
+    "callbackUrl": "https://postman-echo.com/post",
+    "status": "started",
+    "createdAt": "2025-12-04T00:05:44.386Z",
+    "updatedAt": "2025-12-04T00:05:44.386Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "ef78af82-010d-444e-85d5-4c2a2a6c7cdf",
+    "callbackUrl": "https://postman-echo.com/post",
+    "status": "started",
+    "createdAt": "2025-12-04T00:11:01.256Z",
+    "updatedAt": "2025-12-04T00:11:01.257Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "14a629e2-a24d-4434-a83c-e5d6ad52e7a9",
+    "callbackUrl": "https://postman-echo.com/post",
+    "status": "started",
+    "createdAt": "2025-12-04T00:14:11.993Z",
+    "updatedAt": "2025-12-04T00:14:11.993Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "e06c247c-a059-4735-acca-e02b2ee57442",
+    "callbackUrl": "https://postman-echo.com/post",
+    "status": "started",
+    "createdAt": "2025-12-04T00:20:04.801Z",
+    "updatedAt": "2025-12-04T00:20:04.802Z",
+    "progress": "Iniciando scraping...",
+    "logs": [],
+    "result": null,
+    "error": null
+  },
+  {
+    "jobId": "c1db2253-f37c-43dc-9556-171005649b6b",
+    "callbackUrl": "https://postman-echo.com/post",
+    "status": "completed",
+    "createdAt": "2025-12-04T13:59:55.857Z",
+    "updatedAt": "2025-12-04T14:03:09.657Z",
+    "progress": "Scraping concluído com sucesso",
+    "logs": [
+      {
+        "timestamp": "2025-12-04T13:59:55.962Z",
+        "level": "info",
+        "message": "Executando sem worker (dev)"
+      },
+      {
+        "timestamp": "2025-12-04T14:03:09.657Z",
+        "level": "info",
+        "message": "Scraping concluído em 193 segundos (execução direta)"
+      }
+    ],
+    "result": {
+      "summary": "Scraping concluído com sucesso (execução direta)",
+      "totalBoxes": 841,
+      "unitsProcessed": 0,
+      "successfulUnits": 0,
+      "failedUnits": [],
+      "processingTime": 193,
+      "logs": [],
+      "extractedAt": "2025-12-04T14:03:09.654Z"
     },
     "error": null
   }
