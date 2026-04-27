@@ -33,28 +33,32 @@ async function isLoggedIn(page) {
  */
 async function performLogin(page) {
     console.log('🔐 Fazendo login...');
-    
-    // Navegar para a página de login se não estivermos lá
+
+    // Navegar para a página de login se não estivermos lá.
+    // Evita waitForLoadState('networkidle'): o portal mantém conexões abertas
+    // (long-poll/keep-alive) que nunca atingem idle, causando timeout.
+    // O waitForSelector abaixo já é prova suficiente de que a página está pronta.
     if (!page.url().includes('/login')) {
-        await page.goto('https://app.prismabox.com.br/login');
-        await page.waitForLoadState('networkidle');
+        await page.goto('https://app.prismabox.com.br/login', { waitUntil: 'domcontentloaded' });
     }
-    
+
     // Aguardar o campo de usuário aparecer
-    await page.waitForSelector('input[name="username"]', { timeout: 10000 });
+    await page.waitForSelector('input[name="username"]', { timeout: 15000 });
     await page.fill('input[name="username"]', process.env.PRISMA_USERNAME);
-    
+
     await page.waitForSelector('input[name="password"]', { timeout: 10000 });
     await page.fill('input[name="password"]', process.env.PRISMA_PASSWORD);
-    
+
     await page.waitForSelector('button[type="submit"]:has-text("Entrar")', { timeout: 10000 });
     await page.click('button[type="submit"]:has-text("Entrar")');
-    await page.waitForLoadState('networkidle');
-    
+
+    // Após submit, esperar a URL sair de /login (redirecionamento pós-login).
+    // Não usar networkidle aqui pelo mesmo motivo acima.
+    await page.waitForURL(url => !url.toString().includes('/login'), { timeout: 20000 });
+
     // Navegar para a página de boxes
     console.log('📦 Navegando para página de boxes...');
-    await page.goto('https://app.prismabox.com.br/box');
-    await page.waitForLoadState('networkidle');
+    await page.goto('https://app.prismabox.com.br/box', { waitUntil: 'domcontentloaded' });
     
     // Verificar se há modal de permissão e clicar em "NÃO" se aparecer
     try {
